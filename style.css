@@ -7,9 +7,9 @@ body {
 hr {
     width: 100%;
     border: none;
-    border-top: 1px solid #ccc;
-    margin: 8px 0;
-  }
+    border-top: 2px solid #ccc;
+    /* margin: 8px 0; */
+}
   
 .TodoBox {
     width: 416px;
@@ -52,18 +52,22 @@ hr {
 }
 
 .todo-list {
-    width: 400px;
-    height: 35px;
-
-    padding-top:2px;
-    padding-bottom:2px;
-    padding-left:8px;
-    padding-right:8px;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    gap: 10px;
+    border-bottom: 2px solid #ccc;
+    
+    /* width: 400px;
+    height: 35px; */
+
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:8px;
+    padding-right:8px;
+}
+
+.todo-list:hover {
+    background-color: #ccc;
 }
 
 .todo-addBtn {
@@ -76,7 +80,30 @@ hr {
     height: 24px;
 }
 
+.todo-addBtn:hover {
+    transform: scale(1.2);
+}
+
+.todo-checkBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-checked {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.todo-hidden {
+    visibility: hidden;
+}
+
 .todo-optBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     all: unset;
     cursor: pointer;
 }
@@ -86,9 +113,20 @@ hr {
     height: 12px;
 }
 
+.todo-optBtn:hover {
+    transform: scale(1.2);
+}
+
 .todo-span {
-    width: 370px;
-    font-size: 18px;
+    flex:0 0 330px;
+    line-height: 1;
+    font-size: 16px;
+
+    margin-top:2px;
+
+    /* display: flex;
+    align-items: center; */
+
     border: none;
     outline: none;
 }

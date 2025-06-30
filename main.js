@@ -21,6 +21,16 @@ function addTodo() {
 
     const check = document.createElement("input");
     check.setAttribute("type", "checkbox");
+    check.classList.add("todo-checkBtn");
+    check.addEventListener("change", () => {
+        if (check.checked) {
+            span.classList.add("todo-checked");
+            editImg.classList.add("todo-hidden");
+        } else {
+            span.classList.remove("todo-checked");
+            editImg.classList.remove("todo-hidden");
+        }
+    })
 
     const span = document.createElement("span"); // 수정 예정
     span.textContent = text;
@@ -32,6 +42,9 @@ function addTodo() {
     editImg.setAttribute("alt", "수정");
     editBtn.appendChild(editImg);
     editBtn.classList.add("todo-optBtn");
+    // editBtn.addEventListener("click", () => {
+
+    // })
 
     const deleteBtn = document.createElement("button");
     const deleteImg = document.createElement("img");
@@ -39,8 +52,9 @@ function addTodo() {
     deleteImg.setAttribute("src", "Delete.svg");
     deleteBtn.appendChild(deleteImg);
     deleteBtn.classList.add("todo-optBtn");
-
-    const hr = document.createElement("hr");
+    deleteBtn.addEventListener("click", () => {
+        deleteBtn.parentElement.remove();
+    })
 
     div.appendChild(check);
     div.appendChild(span);
@@ -50,6 +64,5 @@ function addTodo() {
 
     div.classList.add("todo-list");
     list.appendChild(div);
-    list.appendChild(hr);
     input.value = "";
 }
