@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+    background-color: #f9f9f9;
+    padding: 40px;
+}
+  
+.TodoBox {
+    width: 416px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    border-radius: 20px;
+    border-width: 1px;
+
+    padding-bottom: 25px;
+    padding-right: 22px;
+    padding-left: 22px;
+    
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+    linear-gradient(0deg, #F1F1F1, #F1F1F1);
+    box-shadow: 0px 4px 4px 0px #00000040;
+    box-shadow: 0px 3px 8px 0px #0000003D;
+}
+
+.todo-header {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.todo-input-area {
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-input {
+    width: 370px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+}
+
+.todo-list {
+    width: 360px;
+    height: 35px;
+
+    padding-top:16px;
+    padding-bottom:16px;
+    padding-left:8px;
+    padding-right:8px;
+
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 3px solid #eee;
+}
+
+.todo-button {
+    all: unset;
+    cursor: pointer;
+}
+  
+.todo-button img {
+    width: 24px;
+    height: 24px;
+}
