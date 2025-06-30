@@ -3,6 +3,13 @@ body {
     background-color: #f9f9f9;
     padding: 40px;
 }
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 8px 0;
+  }
   
 .TodoBox {
     width: 416px;
@@ -40,32 +47,48 @@ body {
     width: 370px;
     font-size: 16px;
     border: none;
-    border-bottom: 2px solid #ccc;
+    /* border-bottom: 2px solid #ccc; */
     outline: none;
 }
 
 .todo-list {
-    width: 360px;
+    width: 400px;
     height: 35px;
 
-    padding-top:16px;
-    padding-bottom:16px;
+    padding-top:2px;
+    padding-bottom:2px;
     padding-left:8px;
     padding-right:8px;
 
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    border-bottom: 3px solid #eee;
 }
 
-.todo-button {
+.todo-addBtn {
     all: unset;
     cursor: pointer;
 }
   
-.todo-button img {
+.todo-addBtn img {
     width: 24px;
     height: 24px;
+}
+
+.todo-optBtn {
+    all: unset;
+    cursor: pointer;
+}
+  
+.todo-optBtn img {
+    width: 12px;
+    height: 12px;
+}
+
+.todo-span {
+    width: 370px;
+    font-size: 18px;
+    border: none;
+    outline: none;
 }

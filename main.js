@@ -1,4 +1,4 @@
-const btn = document.querySelector(".todo-button");
+const btn = document.querySelector(".todo-addBtn");
 const input = document.querySelector(".todo-input");
 const list = document.querySelector(".TodoBox");
 
@@ -23,27 +23,33 @@ function addTodo() {
     check.setAttribute("type", "checkbox");
 
     const span = document.createElement("span"); // 수정 예정
+    span.textContent = text;
+    span.classList.add("todo-span");
 
     const editBtn = document.createElement("button");
     const editImg = document.createElement("img");
     editImg.setAttribute("src", "Edit.svg");
     editImg.setAttribute("alt", "수정");
     editBtn.appendChild(editImg);
-    editBtn.classList.add("todo-button");
+    editBtn.classList.add("todo-optBtn");
 
     const deleteBtn = document.createElement("button");
     const deleteImg = document.createElement("img");
     deleteImg.setAttribute("alt", "삭제");
     deleteImg.setAttribute("src", "Delete.svg");
     deleteBtn.appendChild(deleteImg);
-    deleteBtn.classList.add("todo-button");
+    deleteBtn.classList.add("todo-optBtn");
+
+    const hr = document.createElement("hr");
 
     div.appendChild(check);
+    div.appendChild(span);
     div.appendChild(editBtn);
     div.appendChild(deleteBtn);
     
 
     div.classList.add("todo-list");
     list.appendChild(div);
+    list.appendChild(hr);
     input.value = "";
 }
