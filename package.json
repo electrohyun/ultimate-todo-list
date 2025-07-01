@@ -1,5 +1,30 @@
 {
   "dependencies": {
-    "express": "^5.1.0"
-  }
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "ultimate todo",
+  "main": "app.js",
+  "bin": {
+    "todo-list": "bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electrohyun/ultimate-todo-list.git"
+  },
+  "author": "electrohyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/electrohyun/ultimate-todo-list/issues"
+  },
+  "homepage": "https://github.com/electrohyun/ultimate-todo-list#readme"
 }

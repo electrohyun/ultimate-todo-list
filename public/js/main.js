@@ -38,7 +38,7 @@ function addTodo() {
 
     const editBtn = document.createElement("button");
     const editImg = document.createElement("img");
-    editImg.setAttribute("src", "Edit.svg");
+    editImg.setAttribute("src", "/Edit.svg");
     editImg.setAttribute("alt", "수정");
     editBtn.appendChild(editImg);
     editBtn.classList.add("todo-optBtn");
@@ -52,7 +52,7 @@ function addTodo() {
     const deleteBtn = document.createElement("button");
     const deleteImg = document.createElement("img");
     deleteImg.setAttribute("alt", "삭제");
-    deleteImg.setAttribute("src", "Delete.svg");
+    deleteImg.setAttribute("src", "/Delete.svg");
     deleteBtn.appendChild(deleteImg);
     deleteBtn.classList.add("todo-optBtn");
     deleteBtn.addEventListener("click", () => {
@@ -100,7 +100,7 @@ function editTodo(span, edit, handler, div) {
         // 버튼 교체
         edit.innerText = "";
         const editImg = document.createElement("img");
-        editImg.setAttribute("src", "Edit.svg");
+        editImg.setAttribute("src", "/Edit.svg");
         editImg.setAttribute("alt", "수정");
         edit.appendChild(editImg);
         edit.classList.replace("todo-completeBtn", "todo-optBtn");
