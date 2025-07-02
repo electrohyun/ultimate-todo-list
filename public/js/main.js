@@ -11,12 +11,29 @@ input.addEventListener("keypress", function (e) {
 });
 
 function addTodo() {
+  // 프론트
   const text = input.value.trim();
   if (text === "") {
     alert("내용을 입력해!!");
     return;
   }
 
+  // 백엔드
+  const req = {
+    description: text,
+  };
+
+  fetch("/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(req)
+  });
+  // .then(res => res.json())
+
+
+  // 프론트
   const div = document.createElement("div");
 
   const check = document.createElement("input");
