@@ -6,6 +6,12 @@ const output = {
           root: __dirname + "/../views",
         });
     },
+
+    todos: async (req, res) => {
+        const todo = new Todo(req.body); // 갖고는 있지만 아무것도 없음
+        const result = await todo.load();
+        res.json(result);
+    }
 };
 
 const input = {
@@ -14,6 +20,20 @@ const input = {
         const result = await todo.create();
         res.json(result);
     },
+
+    remove: async (req, res) => {
+        const id = req.params.id;
+        const todo = new Todo(req.body); // 갖고는 있지만 아무것도 없음
+        const result = await todo.remove(id);
+        res.json(result);
+    },
+
+    update: async (req, res) => {
+        const id = req.params.id;
+        const todo = new Todo(req.body); // update할 최신 정보
+        const result = await todo.update(id);
+        res.json(result);
+    }
 };
 
 module.exports = {

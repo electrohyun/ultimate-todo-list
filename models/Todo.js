@@ -6,8 +6,19 @@ class Todo {
     }
 
     async create() {
-        const client = this.body;
-        return await TodoStorage.save(client);
+        return await TodoStorage.save(this.body);
+    }
+
+    async load() {
+        return await TodoStorage.getAll();
+    }
+
+    async remove(id) {
+        return await TodoStorage.remove(id);
+    }
+
+    async update(id) {
+        return await TodoStorage.update(id, this.body);
     }
 
     // static async list() {
