@@ -2,7 +2,10 @@ const header = document.querySelector(".todo-header");
 const btn = document.querySelector(".todo-addBtn");
 const input = document.querySelector(".todo-input");
 const list = document.querySelector(".TodoBox");
-const container = document.querySelector("#todo-container");
+const container = document.createElement("div");
+container.className = "floating-container";
+document.body.appendChild(container);
+
 
 header.classList.add("roll-in-blurred-top");
 header.addEventListener("click", () => {
@@ -29,9 +32,15 @@ function fetchTodo() {
   fetch("/todos")
   .then(res => res.json())
   .then(todos => {
+    const todoTexts = [];
+
     todos.forEach(todo => {
       loadTodo(todo);
+      todoTexts.push(todo.description);
     })
+
+    const container = document.querySelector(".floating-container");
+    generateFloatingTodo(container, todoTexts);
   })
   .catch(err => {
     alert("백엔드가 잘못함");
@@ -125,14 +134,16 @@ function drawTodo(todo) {
   } 
 
   check.addEventListener("change", () => {
+    const img = editBtn.querySelector("img"); // ✅ 이 한 줄이 핵심!
+
     if (check.checked) {
       updateTodo(div.dataset.id, span.textContent, true);
       span.classList.add("todo-checked");
-      editImg.classList.add("todo-hidden");
+      img?.classList.add("todo-hidden");
     } else {
       updateTodo(div.dataset.id, span.textContent, false);
       span.classList.remove("todo-checked");
-      editImg.classList.remove("todo-hidden");
+      img?.classList.remove("todo-hidden");
     }
   });
 
@@ -185,6 +196,7 @@ function editTodo(span, edit, handler, div) {
 
     edit.innerText = "";
     const editImg = document.createElement("img");
+    // 수정 후 체크박스 연결 x
     editImg.setAttribute("src", "/Edit.svg");
     editImg.setAttribute("alt", "수정");
     edit.appendChild(editImg);
@@ -220,5 +232,49 @@ function updateTodo(id, desc, check) {
       description : desc,
       is_check : check
     })
+  });
+}
+
+// 여기부터 없어도 됨(버블)
+
+function generateFloatingTodo(containerDiv, todoList) {
+  const sampleCount = Math.min(todoList.length, 8); 
+
+  const picked = new Set();
+  while (picked.size < sampleCount) {
+    const rand = Math.floor(Math.random() * todoList.length);
+    picked.add(todoList[rand]);
+  }
+
+  picked.forEach((text) => {
+    createFloatingTodo(text, containerDiv);
+  });
+}
+
+function createFloatingTodo(text, container) {
+  const bubble = document.createElement("div");
+  bubble.className = "floating-item";
+  bubble.textContent = text;
+
+  // 위치 지정
+  const side = Math.random() < 0.5 ? "left" : "right";
+  if (side === "left") {
+    bubble.style.left = `${Math.random() * 25}%`;
+  } else {
+    bubble.style.left = `${60 + Math.random() * 25}%`;
+  }
+  bubble.style.top = `${Math.random() * 100}%`;
+
+  // 첫 애니메이션 (floatUp)
+  const delay = Math.random() * 3;
+  bubble.style.animation = `floatUp 6s ease-out ${delay}s forwards`;
+
+  container.appendChild(bubble);
+
+  // floatUp 애니메이션이 끝나면 → floatIdle 시작
+  bubble.addEventListener("animationend", () => {
+    // floatIdle 반복 애니메이션 적용
+    bubble.style.animation = `floatIdle 3s ease-in-out infinite`;
+    bubble.style.opacity = "0.5"; // 다시 설정해줘야 함
   });
 }
