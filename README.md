@@ -1,5 +1,3 @@
 The Ultimate To-Do List
 
-<p align="center">
-  <video src="assets/output.mp4" width="720" autoplay loop muted playsinline></video>
-</p>
+![output](https://github.com/user-attachments/assets/07fc3213-1bd4-411d-bd7f-23511aad126f)
